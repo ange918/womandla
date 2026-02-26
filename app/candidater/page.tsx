@@ -1,11 +1,19 @@
 "use client";
 
+import HeroSection from "@/components/HeroSection";
 import { motion } from "framer-motion";
 
 export default function CandidaterPage() {
   return (
-    <div className="pt-32 pb-20">
-      <div className="container mx-auto px-4 md:px-6">
+    <>
+      <HeroSection 
+        title="Rejoignez l'Aventure"
+        subtitle="Devenez actrice du changement et bénéficiez d'un accompagnement d'excellence."
+        image="https://images.unsplash.com/photo-1523240693567-d7962177c24f?auto=format&fit=crop&q=80&w=800"
+        showButtons={false}
+      />
+      <div className="py-24">
+        <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-2xl mx-auto bg-white p-10 md:p-16 rounded-3xl shadow-2xl border border-gray-100">
           <h1 className="text-3xl font-bold text-dark mb-2 text-center">Candidature au Programme</h1>
           <p className="text-gray-500 text-center mb-10 text-sm">Veuillez remplir soigneusement tous les champs.</p>
@@ -59,6 +67,7 @@ export default function CandidaterPage() {
           </form>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

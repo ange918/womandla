@@ -1,23 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
+import HeroSection from "@/components/HeroSection";
 import { EyeIcon, FlagIcon, ShieldCheckIcon, HeartIcon, ScaleIcon } from "@heroicons/react/24/outline";
 
 export default function AboutPage() {
   return (
-    <div className="pt-32 pb-20">
-      <div className="container mx-auto px-4 md:px-6">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-4xl mx-auto text-center mb-20"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold text-dark mb-6">À propos de WOMANDLA</h1>
-          <div className="h-1.5 w-24 bg-gold mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 leading-relaxed">
-            WOMANDLA est une organisation non-gouvernementale dédiée à l'autonomisation socio-économique des jeunes femmes à travers le Bénin. Notre approche repose sur l'excellence et l'impact territorial.
-          </p>
-        </motion.div>
+    <>
+      <HeroSection 
+        title="À Propos de WOMANDLA"
+        subtitle="Une organisation dédiée à l'autonomisation socio-économique des jeunes femmes à travers le Bénin."
+        image="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800"
+        showButtons={false}
+      />
+      <div className="py-24">
+        <div className="container mx-auto px-4 md:px-6">
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
           <div className="bg-light p-10 rounded-2xl border-l-8 border-primary">
@@ -71,6 +68,6 @@ export default function AboutPage() {
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 }

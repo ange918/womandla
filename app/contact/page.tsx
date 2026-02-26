@@ -1,11 +1,19 @@
 "use client";
 
+import HeroSection from "@/components/HeroSection";
 import { motion } from "framer-motion";
 
 export default function ContactPage() {
   return (
-    <div className="pt-32 pb-20">
-      <div className="container mx-auto px-4 md:px-6">
+    <>
+      <HeroSection 
+        title="Contactez-nous"
+        subtitle="Une question ? Un projet ? Notre équipe est à votre écoute pour construire l'avenir ensemble."
+        image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&q=80&w=800"
+        showButtons={false}
+      />
+      <div className="py-24">
+        <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold text-dark mb-12 text-center">Contactez-nous</h1>
           
@@ -51,6 +59,7 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
