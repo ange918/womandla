@@ -44,11 +44,12 @@ export default function StatsSection() {
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow text-center group"
+              transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              className="bg-light p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 text-center group border border-gray-100"
             >
               <stat.icon className="w-12 h-12 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
               <div className="text-3xl font-bold text-dark mb-2">

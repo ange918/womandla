@@ -13,10 +13,21 @@ export default function HomePage() {
       <HeroSection />
       
       {/* About Section right after Hero */}
-      <section className="py-24 bg-white">
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="py-24 bg-white"
+      >
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-4">À propos de WOMANDLA</h2>
               <h3 className="text-3xl md:text-5xl font-bold text-dark mb-8 tracking-tight">Le catalyseur de l'excellence féminine au Bénin</h3>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
@@ -25,17 +36,23 @@ export default function HomePage() {
               <Link href="/a-propos" className="text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all">
                 En savoir plus sur notre vision <ArrowRightIcon className="w-5 h-5" />
               </Link>
-            </div>
-            <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl">
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl"
+            >
               <img 
                 src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&q=80&w=800" 
                 alt="Women collaboration" 
-                className="object-cover w-full h-full"
+                className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <PartnerMarquee />
       <StatsSection />

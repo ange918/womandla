@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaLinkedinIn } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -24,7 +25,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-gray-300">
               <li><Link href="/a-propos" className="hover:text-gold transition-colors">À propos de nous</Link></li>
               <li><Link href="/programme" className="hover:text-gold transition-colors">Notre Programme</Link></li>
-              <li><Link href="/impact" className="hover:text-gold transition-colors">Impact & Résultats</Link></li>
+              <li><Link href="/partenaires" className="hover:text-gold transition-colors">Partenaires & Soutenir</Link></li>
               <li><Link href="/candidater" className="hover:text-gold transition-colors">Candidater</Link></li>
             </ul>
           </div>
@@ -43,11 +44,18 @@ export default function Footer() {
           <div>
             <h4 className="text-gold font-semibold mb-6">Suivez-nous</h4>
             <div className="flex space-x-4">
-              {/* Simple icons placeholders */}
-              <a href="#" className="w-8 h-8 bg-primary rounded-full flex items-center justify-center hover:bg-gold transition-all">FB</a>
-              <a href="#" className="w-8 h-8 bg-primary rounded-full flex items-center justify-center hover:bg-gold transition-all">TW</a>
-              <a href="#" className="w-8 h-8 bg-primary rounded-full flex items-center justify-center hover:bg-gold transition-all">IG</a>
-              <a href="#" className="w-8 h-8 bg-primary rounded-full flex items-center justify-center hover:bg-gold transition-all">YT</a>
+              <a href="#" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-gold hover:text-white transition-all duration-300 text-white/80">
+                <FaFacebookF size={18} />
+              </a>
+              <a href="#" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-gold hover:text-white transition-all duration-300 text-white/80">
+                <FaTwitter size={18} />
+              </a>
+              <a href="#" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-gold hover:text-white transition-all duration-300 text-white/80">
+                <FaInstagram size={18} />
+              </a>
+              <a href="#" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-gold hover:text-white transition-all duration-300 text-white/80">
+                <FaLinkedinIn size={18} />
+              </a>
             </div>
           </div>
         </div>
