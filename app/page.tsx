@@ -6,6 +6,7 @@ import ResponseSection from "@/components/ResponseSection";
 import PartnerMarquee from "@/components/PartnerMarquee";
 import Link from "next/link";
 import { ArrowRightIcon, StarIcon } from "@heroicons/react/24/solid";
+import { motion } from "framer-motion";
 
 export default function HomePage() {
   return (
