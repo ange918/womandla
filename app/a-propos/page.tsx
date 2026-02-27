@@ -68,6 +68,7 @@ export default function AboutPage() {
           </button>
         </div>
       </div>
+    </div>
     </>
   );
 }
