@@ -25,12 +25,23 @@ export default function ProgrammeImpactPage() {
             <div className="lg:col-span-2 space-y-12">
               <section className="bg-white border border-gray-100 p-8 rounded-2xl shadow-sm">
                 <div className="flex items-center gap-3 mb-6 text-primary">
-                  <ExclamationTriangleIcon className="w-7 h-7" />
-                  <h2 className="text-2xl font-bold text-dark uppercase tracking-wide">Contexte & Justification</h2>
+                  <MapIcon className="w-7 h-7" />
+                  <h2 className="text-2xl font-bold text-dark uppercase tracking-wide">Déploiement Stratégique</h2>
                 </div>
-                <p className="text-gray-700 leading-relaxed">
-                  Le Bénin dispose d'un potentiel démographique jeune exceptionnel. Cependant, les jeunes femmes font face à des barrières structurelles limitant leur accès à des opportunités de haut niveau. WOMANDLA intervient pour briser ces barrières par un renforcement de capacités systématique.
-                </p>
+                <div className="space-y-6">
+                  <div className="border-l-4 border-gold pl-6">
+                    <h3 className="text-xl font-bold text-dark mb-2">Phase Pilote : Bohicon</h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      Lancement opérationnel dans la ville carrefour de Bohicon. Cette phase permet de tester notre modèle d'incubation et de formation sur un échantillon représentatif de 150 jeunes femmes avant le déploiement national.
+                    </p>
+                  </div>
+                  <div className="border-l-4 border-primary pl-6">
+                    <h3 className="text-xl font-bold text-dark mb-2">Expansion Nationale</h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      Extension progressive aux 76 autres communes du Bénin, en s'appuyant sur les centres de promotion sociale et les maisons de l'entreprise pour une couverture territoriale totale.
+                    </p>
+                  </div>
+                </div>
               </section>
 
               <section className="bg-white border border-gray-100 p-8 rounded-2xl shadow-sm">
@@ -41,7 +52,7 @@ export default function ProgrammeImpactPage() {
                 <ul className="space-y-4">
                   {[
                     "Former 3 850 jeunes femmes aux compétences techniques et managériales.",
-                    "Faciliter l'accès au financement pour 77 micro-projets communaux.",
+                    "Faciliter l'accès au financement pour 77 micro-projets communaux (5M FCFA par commune).",
                     "Créer un réseau national de mentorat féminin.",
                     "Réduire de 15% le chômage des jeunes femmes dans les zones ciblées."
                   ].map((item, i) => (
@@ -140,9 +151,14 @@ export default function ProgrammeImpactPage() {
                 </thead>
                 <tbody className="text-sm text-gray-600">
                   <tr className="border-b border-gray-50">
+                    <td className="p-6 font-medium text-dark">Appui Direct & Financement par Commune</td>
+                    <td className="p-6">5 000 000 FCFA</td>
+                    <td className="p-6"><span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">CRITIQUE</span></td>
+                  </tr>
+                  <tr className="border-b border-gray-50">
                     <td className="p-6 font-medium text-dark">Formation & Ingénierie Pédagogique</td>
                     <td className="p-6">45%</td>
-                    <td className="p-6"><span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">CRITIQUE</span></td>
+                    <td className="p-6"><span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold">HAUTE</span></td>
                   </tr>
                 </tbody>
               </table>

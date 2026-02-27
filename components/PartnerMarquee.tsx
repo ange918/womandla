@@ -20,7 +20,7 @@ export default function PartnerMarquee() {
           transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
         >
           {[...partners, ...partners, ...partners].map((partner, i) => (
-            <div key={i} className="flex items-center justify-center min-w-[200px] h-20 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500 px-4">
+            <div key={i} className="flex items-center justify-center min-w-[200px] h-20 opacity-90 hover:opacity-100 transition-all duration-500 px-4">
               <img 
                 src={partner.logo} 
                 alt={partner.name} 
