@@ -55,6 +55,42 @@ export default function HomePage() {
         </div>
       </motion.section>
 
+      {/* Vision & Mission Section */}
+      <section className="py-24 bg-light">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="bg-white p-10 rounded-2xl shadow-sm border-t-4 border-primary">
+              <h3 className="text-2xl font-bold text-dark mb-4">Notre Vision</h3>
+              <p className="text-gray-600">Devenir le levier national de référence pour l'émergence d'une nouvelle génération de femmes leaders et actrices du développement économique local dans chaque commune du Bénin.</p>
+            </div>
+            <div className="bg-white p-10 rounded-2xl shadow-sm border-t-4 border-gold">
+              <h3 className="text-2xl font-bold text-dark mb-4">Notre Mission</h3>
+              <p className="text-gray-600">Mettre en œuvre des programmes de formation, d'incubation et de soutien financier permettant aux jeunes femmes de s'émanciper durablement.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Solutions pour l'autonomisation */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-dark mb-16">Nos solutions pour l'autonomisation</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { title: "Transformation Agro-alimentaire", desc: "Formation aux techniques de conservation et de transformation des produits locaux.", icon: "🌾" },
+              { title: "Fabrication de Savon", desc: "Apprentissage de la production artisanale et semi-industrielle de produits d'hygiène.", icon: "🧼" },
+              { title: "Entrepreneuriat Digital", desc: "Maîtrise des outils numériques pour booster la visibilité et les ventes.", icon: "💻" }
+            ].map((item, i) => (
+              <div key={i} className="p-8 rounded-2xl bg-light hover:bg-primary hover:text-white transition-all group">
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <h3 className="font-bold text-xl mb-4">{item.title}</h3>
+                <p className="text-gray-600 group-hover:text-white/90">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <PartnerMarquee />
       <StatsSection />
       <ResponseSection />
@@ -92,6 +128,28 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-6 max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-dark mb-16">Questions Fréquemment Posées</h2>
+          <div className="space-y-4">
+            {[
+              { q: "Comment rejoindre le programme ?", a: "Le recrutement se fait par appel à candidatures dans les mairies de chaque commune." },
+              { q: "Quels sont les critères d'éligibilité ?", a: "Être une jeune femme résidant au Bénin, âgée de 18 à 35 ans, avec un projet ou une envie d'entreprendre." },
+              { q: "Les formations sont-elles gratuites ?", a: "Oui, l'intégralité du parcours de formation est prise en charge par WOMANDLA et ses partenaires." }
+            ].map((item, i) => (
+              <details key={i} className="group bg-light rounded-xl p-6 cursor-pointer">
+                <summary className="font-bold text-lg list-none flex justify-between items-center">
+                  {item.q}
+                  <span className="transition-transform group-open:rotate-180">↓</span>
+                </summary>
+                <p className="mt-4 text-gray-600">{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-24 bg-light">
         <div className="container mx-auto px-4">
@@ -116,14 +174,14 @@ export default function HomePage() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-20 bg-dark text-white text-center">
+      <section className="py-20 bg-white text-dark text-center border-t border-gray-100">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-bold mb-8">Investissez dans l'avenir du Bénin</h2>
           <div className="flex flex-wrap justify-center gap-6">
             <Link href="/soutenir" className="bg-gold text-white px-10 py-4 rounded-lg font-bold hover:scale-105 transition-all flex items-center gap-2">
               Faire un don <ArrowRightIcon className="w-5 h-5" />
             </Link>
-            <Link href="/partenaires" className="border-2 border-white text-white px-10 py-4 rounded-lg font-bold hover:bg-white hover:text-dark transition-all">
+            <Link href="/partenaires" className="border-2 border-primary text-primary px-10 py-4 rounded-lg font-bold hover:bg-primary hover:text-white transition-all">
               Devenir partenaire
             </Link>
           </div>
