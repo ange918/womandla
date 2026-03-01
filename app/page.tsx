@@ -5,7 +5,16 @@ import StatsSection from "@/components/StatsSection";
 import ResponseSection from "@/components/ResponseSection";
 import PartnerMarquee from "@/components/PartnerMarquee";
 import Link from "next/link";
-import { ArrowRightIcon, StarIcon } from "@heroicons/react/24/solid";
+import { 
+  ArrowRightIcon, 
+  StarIcon, 
+  EyeIcon, 
+  FlagIcon,
+  BeakerIcon, 
+  SparklesIcon, 
+  ComputerDesktopIcon,
+  ChevronDownIcon
+} from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 
 export default function HomePage() {
@@ -59,14 +68,26 @@ export default function HomePage() {
       <section className="py-24 bg-light">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="bg-white p-10 rounded-2xl shadow-sm border-t-4 border-primary">
-              <h3 className="text-2xl font-bold text-dark mb-4">Notre Vision</h3>
-              <p className="text-gray-600">Devenir le levier national de référence pour l'émergence d'une nouvelle génération de femmes leaders et actrices du développement économique local dans chaque commune du Bénin.</p>
-            </div>
-            <div className="bg-white p-10 rounded-2xl shadow-sm border-t-4 border-gold">
-              <h3 className="text-2xl font-bold text-dark mb-4">Notre Mission</h3>
-              <p className="text-gray-600">Mettre en œuvre des programmes de formation, d'incubation et de soutien financier permettant aux jeunes femmes de s'émanciper durablement.</p>
-            </div>
+            <motion.div 
+              whileHover={{ y: -10 }}
+              className="bg-white p-12 rounded-3xl shadow-xl border-b-8 border-primary group"
+            >
+              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                <EyeIcon className="w-10 h-10 text-primary" />
+              </div>
+              <h3 className="text-3xl font-bold text-dark mb-6">Notre Vision</h3>
+              <p className="text-gray-600 text-lg leading-relaxed">Devenir le levier national de référence pour l'émergence d'une nouvelle génération de femmes leaders et actrices du développement économique local dans chaque commune du Bénin.</p>
+            </motion.div>
+            <motion.div 
+              whileHover={{ y: -10 }}
+              className="bg-white p-12 rounded-3xl shadow-xl border-b-8 border-gold group"
+            >
+              <div className="w-16 h-16 bg-gold/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                <FlagIcon className="w-10 h-10 text-gold" />
+              </div>
+              <h3 className="text-3xl font-bold text-dark mb-6">Notre Mission</h3>
+              <p className="text-gray-600 text-lg leading-relaxed">Mettre en œuvre des programmes de formation, d'incubation et de soutien financier permettant aux jeunes femmes de s'émanciper durablement.</p>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -77,14 +98,16 @@ export default function HomePage() {
           <h2 className="text-3xl md:text-4xl font-bold text-center text-dark mb-16">Nos solutions pour l'autonomisation</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: "Transformation Agro-alimentaire", desc: "Formation aux techniques de conservation et de transformation des produits locaux.", icon: "🌾" },
-              { title: "Fabrication de Savon", desc: "Apprentissage de la production artisanale et semi-industrielle de produits d'hygiène.", icon: "🧼" },
-              { title: "Entrepreneuriat Digital", desc: "Maîtrise des outils numériques pour booster la visibilité et les ventes.", icon: "💻" }
+              { title: "Transformation Agro-alimentaire", desc: "Formation aux techniques de conservation et de transformation des produits locaux.", icon: BeakerIcon },
+              { title: "Fabrication de Savon", desc: "Apprentissage de la production artisanale et semi-industrielle de produits d'hygiène.", icon: SparklesIcon },
+              { title: "Entrepreneuriat Digital", desc: "Maîtrise des outils numériques pour booster la visibilité et les ventes.", icon: ComputerDesktopIcon }
             ].map((item, i) => (
-              <div key={i} className="p-8 rounded-2xl bg-light hover:bg-primary hover:text-white transition-all group">
-                <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="font-bold text-xl mb-4">{item.title}</h3>
-                <p className="text-gray-600 group-hover:text-white/90">{item.desc}</p>
+              <div key={i} className="p-10 rounded-3xl bg-light hover:bg-primary hover:text-white transition-all group border border-gray-100 shadow-sm hover:shadow-xl">
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                  <item.icon className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="font-bold text-2xl mb-4">{item.title}</h3>
+                <p className="text-gray-600 group-hover:text-white/90 text-lg">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -132,18 +155,18 @@ export default function HomePage() {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6 max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-dark mb-16">Questions Fréquemment Posées</h2>
-          <div className="space-y-4">
+          <div className="space-y-6">
             {[
               { q: "Comment rejoindre le programme ?", a: "Le recrutement se fait par appel à candidatures dans les mairies de chaque commune." },
               { q: "Quels sont les critères d'éligibilité ?", a: "Être une jeune femme résidant au Bénin, âgée de 18 à 35 ans, avec un projet ou une envie d'entreprendre." },
               { q: "Les formations sont-elles gratuites ?", a: "Oui, l'intégralité du parcours de formation est prise en charge par WOMANDLA et ses partenaires." }
             ].map((item, i) => (
-              <details key={i} className="group bg-light rounded-xl p-6 cursor-pointer">
-                <summary className="font-bold text-lg list-none flex justify-between items-center">
+              <details key={i} className="group bg-light rounded-2xl p-8 cursor-pointer hover:bg-gray-100 transition-colors">
+                <summary className="font-bold text-xl list-none flex justify-between items-center">
                   {item.q}
-                  <span className="transition-transform group-open:rotate-180">↓</span>
+                  <ChevronDownIcon className="w-6 h-6 transition-transform group-open:rotate-180" />
                 </summary>
-                <p className="mt-4 text-gray-600">{item.a}</p>
+                <p className="mt-6 text-gray-600 text-lg leading-relaxed">{item.a}</p>
               </details>
             ))}
           </div>

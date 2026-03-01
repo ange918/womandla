@@ -17,24 +17,30 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-6">
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
-          <div className="bg-light p-10 rounded-2xl border-l-8 border-primary">
-            <div className="flex items-center gap-4 mb-6">
+          <motion.div 
+            whileHover={{ y: -10 }}
+            className="bg-white p-12 rounded-3xl shadow-xl border-b-8 border-primary group"
+          >
+            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
               <EyeIcon className="w-10 h-10 text-primary" />
-              <h2 className="text-2xl font-bold text-dark">Notre Vision</h2>
             </div>
-            <p className="text-gray-700 leading-relaxed">
+            <h2 className="text-3xl font-bold text-dark mb-6">Notre Vision</h2>
+            <p className="text-gray-700 text-lg leading-relaxed">
               Devenir le levier national de référence pour l'émergence d'une nouvelle génération de femmes leaders et actrices du développement économique local dans chaque commune du Bénin.
             </p>
-          </div>
-          <div className="bg-light p-10 rounded-2xl border-l-8 border-gold">
-            <div className="flex items-center gap-4 mb-6">
+          </motion.div>
+          <motion.div 
+            whileHover={{ y: -10 }}
+            className="bg-white p-12 rounded-3xl shadow-xl border-b-8 border-gold group"
+          >
+            <div className="w-16 h-16 bg-gold/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
               <FlagIcon className="w-10 h-10 text-gold" />
-              <h2 className="text-2xl font-bold text-dark">Notre Mission</h2>
             </div>
-            <p className="text-gray-700 leading-relaxed">
+            <h2 className="text-3xl font-bold text-dark mb-6">Notre Mission</h2>
+            <p className="text-gray-700 text-lg leading-relaxed">
               Mettre en œuvre des programmes de formation, d'incubation et de soutien financier permettant aux jeunes femmes de s'émanciper durablement et de contribuer à la prospérité nationale.
             </p>
-          </div>
+          </motion.div>
         </div>
 
         <section className="mb-24">
