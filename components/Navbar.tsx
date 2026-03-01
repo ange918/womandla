@@ -9,7 +9,7 @@ const navLinks = [
   { name: "Accueil", href: "/" },
   { name: "À propos", href: "/a-propos" },
   { name: "Programme & Impact", href: "/programme-et-impact" },
-  { name: "Partenaires & Soutenir", href: "/partenaires" },
+  { name: "Partenaires & Soutenir", href: "/soutenir" },
   { name: "Candidater", href: "/candidater" },
   { name: "Contact", href: "/contact" },
 ];
@@ -53,7 +53,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/partenaires"
+              href="/soutenir"
               className="bg-gold text-white px-5 py-2 rounded font-semibold text-sm hover:bg-opacity-90 transition-all shadow-md"
             >
               Devenir Partenaire
@@ -91,7 +91,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link
-                href="/partenaires"
+                href="/soutenir"
                 onClick={() => setIsOpen(false)}
                 className="bg-gold text-white px-5 py-3 rounded text-center font-bold"
               >
