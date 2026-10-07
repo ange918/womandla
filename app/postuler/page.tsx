@@ -112,10 +112,7 @@ export default function PostulerPage() {
             </Card>
             <Card className="p-5">
               <h3 className="font-bold">Téléphone</h3>
-              <p className="mt-2 text-sm text-muted">
-                <a className="font-bold text-primary" href={`tel:${org.phone.replace(/\s/g, "")}`}>{org.phone}</a>
-                <span className="mt-1 block">Numéro publié sur la page Contact. Le pied de page historique indiquait aussi {org.phoneFooterLegacy} : à unifier.</span>
-              </p>
+              <p className="mt-2 text-sm text-muted">Aucun numéro n’est publié. Le formulaire recueille le vôtre pour le suivi du dossier.</p>
             </Card>
             <Card className="p-5">
               <h3 className="font-bold">E-mail</h3>

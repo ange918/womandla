@@ -62,12 +62,8 @@ export default function Footer() {
                 {org.email}
               </a>
             </li>
-            <li>
-              <a href={`tel:${org.phone.replace(/\s/g, "")}`} className="hover:text-white">
-                {org.phone}
-              </a>
-            </li>
           </ul>
+          <p className="mt-3 text-xs text-white/50">Aucun numéro de téléphone n’est publié.</p>
           <p className="mt-4 text-xs text-white/50">
             Réseaux sociaux : liens non publiés sur le site actuel.
           </p>

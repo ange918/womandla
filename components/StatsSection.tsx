@@ -1,12 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  BuildingOffice2Icon, 
-  UserGroupIcon, 
-  AcademicCapIcon, 
-  BanknotesIcon 
-} from "@heroicons/react/24/outline";
+import { BuildingOffice2Icon } from "@heroicons/react/24/outline";
 import AnimatedCounter from "./AnimatedCounter";
 
 const stats = [
@@ -15,24 +10,6 @@ const stats = [
     label: "Communes ciblées",
     value: 77,
     suffix: "",
-  },
-  {
-    icon: UserGroupIcon,
-    label: "Bénéficiaires potentielles",
-    value: 3850,
-    suffix: "",
-  },
-  {
-    icon: AcademicCapIcon,
-    label: "Femmes par commune",
-    value: 50,
-    suffix: "",
-  },
-  {
-    icon: BanknotesIcon,
-    label: "Budget / commune",
-    value: 15,
-    suffix: "M FCFA",
   },
 ];
 

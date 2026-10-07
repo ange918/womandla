@@ -4,8 +4,6 @@ export const org = {
   name: "WOMANDLA",
   logoSubtitle: "Autonomisation Féminine au Bénin",
   email: "contact@womandla.bj",
-  phone: "+229 21 00 00 00",
-  phoneFooterLegacy: "+229 00 00 00 00",
   addressLines: ["Avenue Jean-Paul II, Cotonou", "République du Bénin"],
   city: "Cotonou, Bénin",
 };
@@ -81,12 +79,9 @@ export const response = [
   },
 ];
 
-/** Objectifs chiffrés déjà affichés sur l’accueil (cibles, pas des résultats mesurés). */
+/** Seule cible de couverture conservée : les 77 communes, déjà le cadre du site. */
 export const targetStats = [
-  { value: "77", label: "Communes ciblées", hint: "Objectif de couverture nationale" },
-  { value: "3 850", label: "Bénéficiaires potentielles", hint: "Cible publiée sur l’accueil" },
-  { value: "50", label: "Femmes par commune", hint: "Cible publiée sur l’accueil" },
-  { value: "15 M FCFA", label: "Budget par commune", hint: "Cible publiée sur l’accueil" },
+  { value: "77", label: "Communes ciblées", hint: "Couverture nationale du programme" },
 ];
 
 export const phases = [
@@ -115,11 +110,11 @@ export const phases = [
 export const deployment = {
   pilotTitle: "Phase pilote : Bohicon",
   pilotText:
-    "Lancement opérationnel dans la ville carrefour de Bohicon. Cette phase permet de tester notre modèle d’incubation et de formation sur un échantillon représentatif de 150 jeunes femmes avant le déploiement national.",
+    "Lancement opérationnel dans la ville carrefour de Bohicon. Cette phase permet de tester le modèle d’incubation et de formation avant le déploiement national.",
   expansionTitle: "Expansion nationale",
   expansionText:
-    "Extension progressive aux 76 autres communes du Bénin, en s’appuyant sur les centres de promotion sociale et les maisons de l’entreprise pour une couverture territoriale totale.",
-  aside: "77 communes, 12 départements, 1 vision unique.",
+    "Extension progressive aux autres communes du Bénin, en s’appuyant sur les centres de promotion sociale et les maisons de l’entreprise pour une couverture territoriale totale.",
+  aside: "77 communes, une vision nationale.",
   statuses: [
     { label: "Phase pilote", value: "Bientôt" },
     { label: "Extension", value: "En cours" },
@@ -127,22 +122,15 @@ export const deployment = {
   ],
 };
 
-export const objectivesProgramme = [
-  "Former 3 850 jeunes femmes aux compétences techniques et managériales.",
-  "Faciliter l’accès au financement pour 77 micro-projets communaux (5 M FCFA par commune).",
+/** Objectifs repris sans les effectifs et pourcentages non sourcés. */
+export const objectives = [
+  "Former les jeunes femmes aux compétences techniques et managériales.",
+  "Faciliter l’accès au financement de micro-projets communaux.",
   "Créer un réseau national de mentorat féminin.",
-  "Réduire de 15 % le chômage des jeunes femmes dans les zones ciblées.",
-];
-
-export const objectivesImpactPage = [
-  "Former 5 000 femmes aux métiers de transformation locale.",
-  "Faciliter l’accès au micro-crédit pour 2 000 porteuses de projets.",
-  "Créer un réseau d’entraide et de mentorat national.",
+  "Contribuer à réduire le chômage des jeunes femmes dans les zones ciblées.",
 ];
 
 export const expectedResults = [
-  "Augmentation de 40 % des revenus moyens des bénéficiaires.",
-  "Création de 150 coopératives féminines structurées.",
   "Réduction significative de l’exode rural féminin.",
 ];
 
@@ -157,36 +145,6 @@ export const activities = ["Ateliers techniques", "Incubation business", "Suivi 
 export const methodology =
   "Notre approche repose sur le « Faire-Faire » et l’ancrage communautaire. Nous utilisons des outils participatifs et des démonstrations pratiques pour garantir une assimilation rapide des compétences techniques.";
 
-export const budgetProgramme = [
-  { item: "Appui direct et financement par commune", share: "20 000 000 FCFA", priority: "Critique" },
-  { item: "Formation et ingénierie pédagogique", share: "45 %", priority: "Haute" },
-];
-
-export const budgetImpact = [
-  { item: "Formation technique", desc: "Formateurs, matériel, logistique", share: "45 %" },
-  { item: "Appui financier", desc: "Fonds de roulement, micro-subventions", share: "30 %" },
-  { item: "Suivi et évaluation", desc: "Monitoring, rapports, audits", share: "15 %" },
-  { item: "Fonctionnement", desc: "Administration, communication", share: "10 %" },
-];
-
-export const publishedKpis = [
-  { value: "84 %", label: "Taux d’insertion pro", source: "Page Programme" },
-  { value: "156", label: "Projets financés", source: "Page Programme" },
-  { value: "+65 %", label: "Score d’autonomie", source: "Page Programme" },
-  { value: "92 %", label: "Taux de réussite", source: "Page Programme & Impact" },
-  { value: "+40 %", label: "Impact revenus", source: "Page Programme & Impact" },
-  { value: "5 000+", label: "Bénéficiaires (cible affichée)", source: "Page Programme & Impact" },
-];
-
-export const pilotClaims = {
-  title: "Phase pilote réussie",
-  text: "Lancée en 2024, notre phase pilote a permis d’accompagner 500 jeunes femmes dans 5 communes stratégiques du Bénin. 80 % d’entre elles ont aujourd’hui une activité génératrice de revenus stable.",
-  points: [
-    "Plus de 1 200 heures de formation technique dispensées.",
-    "50 micro-projets financés et incubés.",
-  ],
-};
-
 export const faq = [
   {
     q: "Comment rejoindre le programme ?",
@@ -199,24 +157,6 @@ export const faq = [
   {
     q: "Les formations sont-elles gratuites ?",
     a: "Oui, l’intégralité du parcours de formation est prise en charge par WOMANDLA et ses partenaires.",
-  },
-];
-
-export const testimonials = [
-  {
-    name: "Afiwa",
-    role: "Entrepreneure, Cotonou",
-    text: "Grâce à WOMANDLA, j’ai pu structurer mon projet de transformation agro-alimentaire et obtenir mon premier financement.",
-  },
-  {
-    name: "Bernice",
-    role: "Leader communautaire, Parakou",
-    text: "Le programme m’a donné les outils de leadership nécessaires pour porter la voix des femmes de ma commune.",
-  },
-  {
-    name: "Clarisse",
-    role: "Bénéficiaire, Ouidah",
-    text: "La formation technique était d’une qualité exceptionnelle. Je me sens enfin prête à relever les défis du marché.",
   },
 ];
 

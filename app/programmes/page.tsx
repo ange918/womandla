@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { ButtonLink, Card, Container, EmptyState, PageHero } from "@/components/site/ui";
 import {
   activities,
-  budgetImpact,
-  budgetProgramme,
   deployment,
   expectedResults,
   faq,
@@ -11,8 +9,7 @@ import {
   globalObjective,
   howItWorks,
   methodology,
-  objectivesImpactPage,
-  objectivesProgramme,
+  objectives,
   solutions,
 } from "@/lib/content";
 import FaqAccordion from "@/components/site/FaqAccordion";
@@ -94,26 +91,27 @@ export default function ProgrammesPage() {
       <section className="py-16">
         <Container className="grid gap-8 lg:grid-cols-2">
           <div>
-            <h2 className="font-display text-2xl font-extrabold">Objectifs — page Programme</h2>
+            <h2 className="font-display text-2xl font-extrabold">Objectifs</h2>
             <ul className="mt-4 space-y-3 text-sm">
-              {objectivesProgramme.map((item) => (
+              {objectives.map((item) => (
                 <li key={item} className="rounded-2xl bg-white p-4">{item}</li>
               ))}
             </ul>
+            <p className="mt-3 text-xs text-muted">Les effectifs et pourcentages qui se contredisaient d’une page à l’autre ne sont plus affichés.</p>
           </div>
           <div>
-            <h2 className="font-display text-2xl font-extrabold">Objectifs — page Programme et impact</h2>
-            <ul className="mt-4 space-y-3 text-sm">
-              {objectivesImpactPage.map((item) => (
-                <li key={item} className="rounded-2xl bg-white p-4">{item}</li>
-              ))}
-            </ul>
-            <h3 className="mt-8 font-display text-xl font-extrabold">Résultats attendus</h3>
-            <ul className="mt-3 space-y-2 text-sm text-muted">
+            <h2 className="font-display text-2xl font-extrabold">Résultats attendus</h2>
+            <ul className="mt-4 space-y-2 text-sm text-muted">
               {expectedResults.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item} className="rounded-2xl bg-white p-4 text-ink">{item}</li>
               ))}
             </ul>
+            <div className="mt-4">
+              <EmptyState
+                title="Pas de cible chiffrée"
+                text="Les hausses de revenu, nombres de coopératives et autres résultats quantifiés seront publiés lorsqu’ils seront sourcés."
+              />
+            </div>
           </div>
         </Container>
       </section>
@@ -135,60 +133,12 @@ export default function ProgrammesPage() {
       </section>
 
       <section className="bg-white py-16">
-        <Container className="grid gap-8 lg:grid-cols-2">
-          <div>
-            <h2 className="font-display text-2xl font-extrabold">Budget publié sur /programme</h2>
-            <div className="mt-4 overflow-x-auto">
-              <table className="w-full text-left text-sm">
-                <caption className="sr-only">Allocation budgétaire de la page Programme</caption>
-                <thead>
-                  <tr className="border-b border-line text-muted">
-                    <th className="py-2 font-semibold">Poste</th>
-                    <th className="py-2 font-semibold">Montant ou part</th>
-                    <th className="py-2 font-semibold">Priorité</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {budgetProgramme.map((row) => (
-                    <tr key={row.item} className="border-b border-line">
-                      <td className="py-3 pr-3">{row.item}</td>
-                      <td className="py-3">{row.share}</td>
-                      <td className="py-3">{row.priority}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div>
-            <h2 className="font-display text-2xl font-extrabold">Budget publié sur /programme-et-impact</h2>
-            <div className="mt-4 overflow-x-auto">
-              <table className="w-full text-left text-sm">
-                <caption className="sr-only">Répartition budgétaire de la page Programme et impact</caption>
-                <thead>
-                  <tr className="border-b border-line text-muted">
-                    <th className="py-2 font-semibold">Poste</th>
-                    <th className="py-2 font-semibold">Description</th>
-                    <th className="py-2 font-semibold">Part</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {budgetImpact.map((row) => (
-                    <tr key={row.item} className="border-b border-line">
-                      <td className="py-3 pr-3 font-semibold">{row.item}</td>
-                      <td className="py-3 pr-3 text-muted">{row.desc}</td>
-                      <td className="py-3">{row.share}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </Container>
         <Container>
-          <p className="mt-4 text-xs text-muted">
-            Les deux tableaux existaient déjà et ne concordent pas. Ils sont conservés tels quels pour que l’équipe choisisse la version à garder. Aucune valeur de kit en FCFA n’était publiée en dehors de ces lignes.
-          </p>
+          <h2 className="mb-4 font-display text-2xl font-extrabold">Budget</h2>
+          <EmptyState
+            title="Répartition non publiée"
+            text="Les deux tableaux du site se contredisaient. Aucune part ni aucun montant n’est affiché tant qu’une version sourcée n’est pas fournie. L’engagement conservé sur les dons reste : 100 % vers les kits de formation et de démarrage."
+          />
         </Container>
       </section>
 

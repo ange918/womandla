@@ -178,7 +178,7 @@ export default function CandidatureWizard() {
             <input id="dateNaissance" type="date" className={inputClass} aria-invalid={Boolean(errors.dateNaissance)} {...form.register("dateNaissance")} />
           </Field>
           <Field id="telephone" label="Téléphone" error={errors.telephone} hint="Indicatif Bénin accepté, 8 à 10 chiffres.">
-            <input id="telephone" type="tel" className={inputClass} autoComplete="tel" placeholder="+229 01 97 00 00 00" aria-invalid={Boolean(errors.telephone)} {...form.register("telephone")} />
+            <input id="telephone" type="tel" className={inputClass} autoComplete="tel" placeholder="+229" aria-invalid={Boolean(errors.telephone)} {...form.register("telephone")} />
           </Field>
           <Field id="whatsapp" label="WhatsApp (si différent)" error={errors.whatsapp}>
             <input id="whatsapp" type="tel" className={inputClass} aria-invalid={Boolean(errors.whatsapp)} {...form.register("whatsapp")} />

@@ -16,7 +16,6 @@ import {
   response,
   solutions,
   targetStats,
-  testimonials,
   values,
   vision,
 } from "@/lib/content";
@@ -83,7 +82,7 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-5 grid gap-4 lg:grid-cols-[240px_1fr]">
             {targetStats.map((stat) => (
               <Card key={stat.label} className="p-6">
                 <p className="font-display text-4xl font-extrabold text-gold-deep">{stat.value}</p>
@@ -91,11 +90,11 @@ export default function HomePage() {
                 <p className="mt-3 text-[11px] font-semibold text-muted">{stat.hint}</p>
               </Card>
             ))}
+            <EmptyState
+              title="Indicateurs à publier"
+              text="Aucun autre chiffre d’impact n’est affiché. Les effectifs, taux et budgets seront ajoutés lorsqu’ils seront sourcés."
+            />
           </div>
-          <p className="mt-4 text-xs text-muted">
-            Ces chiffres sont les cibles déjà affichées sur le site. Les réalisations mesurées ne sont pas
-            publiées ici tant qu’elles n’ont pas été fournies.
-          </p>
         </Container>
       </section>
 
@@ -197,23 +196,11 @@ export default function HomePage() {
       <section className="bg-light py-16 md:py-20">
         <Container>
           <Eyebrow>Témoignages</Eyebrow>
-          <h2 className="font-display text-3xl font-extrabold md:text-4xl">Elles témoignent</h2>
-          <p className="mt-3 max-w-2xl text-sm text-muted">
-            Textes déjà publiés sur le site. À confirmer par l’équipe avant de les présenter comme des récits vérifiés.
-          </p>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {testimonials.map((item) => (
-              <Card key={item.name} className="p-6">
-                <blockquote>
-                  <p className="text-sm leading-relaxed text-ink">« {item.text} »</p>
-                  <footer className="mt-4">
-                    <p className="font-bold">{item.name}</p>
-                    <p className="text-sm text-primary">{item.role}</p>
-                  </footer>
-                </blockquote>
-              </Card>
-            ))}
-          </div>
+          <h2 className="mb-6 font-display text-3xl font-extrabold md:text-4xl">Elles témoignent</h2>
+          <EmptyState
+            title="Aucun témoignage publié."
+            text="Les récits de bénéficiaires seront ajoutés ici lorsqu’ils auront été validés par l’équipe."
+          />
         </Container>
       </section>
 

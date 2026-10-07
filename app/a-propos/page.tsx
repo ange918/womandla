@@ -9,7 +9,6 @@ import {
   mission,
   partners,
   phases,
-  pilotClaims,
   values,
   vision,
 } from "@/lib/content";
@@ -58,19 +57,12 @@ export default function AboutPage() {
       <section className="bg-white py-16">
         <Container className="grid gap-8 lg:grid-cols-2">
           <div>
-            <h2 className="font-display text-3xl font-extrabold">Notre histoire publiée</h2>
-            <p className="mt-4 leading-relaxed text-muted">{fr(pilotClaims.text)}</p>
-            <ul className="mt-4 space-y-2 text-sm">
-              {pilotClaims.points.map((point) => (
-                <li key={point} className="flex gap-2">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
-                  {point}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-4 text-xs text-muted">
-              Chiffres repris de la page À propos actuelle. Une autre page du site parle d’un pilote de 150 jeunes femmes à Bohicon : les deux versions sont conservées, à réconcilier.
-            </p>
+            <h2 className="mb-4 font-display text-3xl font-extrabold">Phase pilote</h2>
+            <p className="mb-4 leading-relaxed text-muted">{fr(deployment.pilotText)}</p>
+            <EmptyState
+              title="Résultats non publiés"
+              text="Aucun effectif, taux ou volume d’heures n’est affiché. Ces chiffres seront ajoutés lorsqu’ils seront sourcés."
+            />
           </div>
           <div className="arch-round h-80">
             <img

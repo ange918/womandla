@@ -19,7 +19,7 @@ const phone = z
   .string()
   .trim()
   .min(8, "Indiquez un numéro de téléphone.")
-  .refine(isBeninPhone, "Numéro invalide. Exemple : +229 01 97 00 00 00");
+  .refine(isBeninPhone, "Numéro invalide. Indiquez un numéro béninois, avec ou sans l’indicatif +229.");
 
 export const candidatureStep1 = z.object({
   prenom: z.string().trim().min(2, "Indiquez votre prénom."),

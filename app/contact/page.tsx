@@ -50,12 +50,8 @@ export default function ContactPage() {
               </p>
               <p className="mt-4 text-sm">
                 <a className="font-bold text-primary" href={`mailto:${org.email}`}>{org.email}</a>
-                <br />
-                <a className="font-bold text-primary" href={`tel:${org.phone.replace(/\s/g, "")}`}>{org.phone}</a>
               </p>
-              <p className="mt-3 text-xs text-muted">
-                Le pied de page précédent affichait {org.phoneFooterLegacy}. Les deux numéros sont signalés, aucun n’a été remplacé par un numéro de maquette.
-              </p>
+              <p className="mt-3 text-sm text-muted">Aucun numéro de téléphone n’est publié.</p>
             </Card>
             <EmptyState
               title="Carte et antennes à compléter"
