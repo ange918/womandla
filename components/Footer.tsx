@@ -15,7 +15,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Programme national d'autonomisation des jeunes femmes au Bénin. Une initiative stratégique pour transformer durablement l'avenir du pays.
+              Programme national d’autonomisation des jeunes femmes au Bénin. Une initiative stratégique pour transformer durablement l’avenir du pays.
             </p>
           </div>
 
@@ -36,7 +36,6 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-gray-300">
               <li>Cotonou, Bénin</li>
               <li>contact@womandla.bj</li>
-              <li>+229 00 00 00 00</li>
             </ul>
           </div>
 

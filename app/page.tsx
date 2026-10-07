@@ -1,214 +1,326 @@
-"use client";
-
-import HeroSection from "@/components/HeroSection";
-import StatsSection from "@/components/StatsSection";
-import ResponseSection from "@/components/ResponseSection";
-import PartnerMarquee from "@/components/PartnerMarquee";
 import Link from "next/link";
-import { 
-  ArrowRightIcon, 
-  StarIcon, 
-  EyeIcon, 
-  FlagIcon,
-  BeakerIcon, 
-  SparklesIcon, 
-  ComputerDesktopIcon,
-  ChevronDownIcon
-} from "@heroicons/react/24/outline";
-import { motion } from "framer-motion";
+import DonExpress from "@/components/home/DonExpress";
+import FaqAccordion from "@/components/site/FaqAccordion";
+import NewsletterForm from "@/components/site/NewsletterForm";
+import { ButtonLink, Card, Container, EmptyState, Eyebrow } from "@/components/site/ui";
+import {
+  context,
+  deployment,
+  faq,
+  hero,
+  howItWorks,
+  missionShort,
+  odds,
+  partners,
+  phases,
+  response,
+  solutions,
+  targetStats,
+  values,
+  vision,
+} from "@/lib/content";
+import { fr } from "@/lib/utils";
 
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
-      
-      {/* About Section right after Hero */}
-      <motion.section 
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="py-24 bg-white"
-      >
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-4">À propos de WOMANDLA</h2>
-              <h3 className="text-3xl md:text-5xl font-bold text-dark mb-8 tracking-tight">Le catalyseur de l'excellence féminine au Bénin</h3>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                WOMANDLA n'est pas qu'un programme, c'est un mouvement national. Présent dans les 77 communes, nous identifions, formons et propulsons les jeunes femmes vers l'autonomie et le leadership.
-              </p>
-              <Link href="/a-propos" className="text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all">
-                En savoir plus sur notre vision <ArrowRightIcon className="w-5 h-5" />
-              </Link>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl"
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&q=80&w=800" 
-                alt="Women collaboration" 
-                className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
+      <section className="mesh overflow-hidden">
+        <Container className="grid items-center gap-12 py-14 md:py-20 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <span className="mb-5 inline-flex rounded-full bg-soft px-3 py-1 text-[11px] font-bold text-primary">
+              {hero.badge}
+            </span>
+            <h1 className="font-display text-4xl font-extrabold leading-[1.06] text-ink md:text-6xl">
+              {fr(hero.title)} <span className="text-primary">{fr(hero.accent)}</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">{fr(hero.subtitle)}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <ButtonLink href="/don" variant="sun">
+                Faire un don
+              </ButtonLink>
+              <ButtonLink href="/programmes" variant="primary">
+                Découvrir nos actions
+              </ButtonLink>
+            </div>
+            <Link href="/postuler" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-primary">
+              Vous êtes une jeune femme ? Se faire accompagner
+            </Link>
+          </div>
+          <div className="relative mx-auto w-full max-w-[440px]">
+            <div className="arch-round h-[460px] md:h-[520px]">
+              <img
+                src="/media/c-hero-gari.jpg"
+                alt="Illustration : transformation du manioc au Bénin. Photo libre, pas une bénéficiaire WOMANDLA."
+                className="h-full w-full object-cover object-[62%_40%]"
               />
-            </motion.div>
+            </div>
+            <Card className="absolute -bottom-4 left-0 w-[230px] p-4 shadow-card md:-left-6">
+              <p className="eyebrow text-gold-deep">Sur le terrain</p>
+              <p className="mt-1 text-sm font-bold">{hero.pilotCardTitle}</p>
+              <p className="text-xs text-muted">{hero.pilotCardText}</p>
+            </Card>
           </div>
-        </div>
-      </motion.section>
-
-      {/* Vision & Mission Section */}
-      <section className="py-24 bg-light">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <motion.div 
-              whileHover={{ y: -10 }}
-              className="bg-white p-12 rounded-3xl shadow-xl border-b-8 border-primary group"
-            >
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                <EyeIcon className="w-10 h-10 text-primary" />
-              </div>
-              <h3 className="text-3xl font-bold text-dark mb-6">Notre Vision</h3>
-              <p className="text-gray-600 text-lg leading-relaxed">Devenir le levier national de référence pour l'émergence d'une nouvelle génération de femmes leaders et actrices du développement économique local dans chaque commune du Bénin.</p>
-            </motion.div>
-            <motion.div 
-              whileHover={{ y: -10 }}
-              className="bg-white p-12 rounded-3xl shadow-xl border-b-8 border-gold group"
-            >
-              <div className="w-16 h-16 bg-gold/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                <FlagIcon className="w-10 h-10 text-gold" />
-              </div>
-              <h3 className="text-3xl font-bold text-dark mb-6">Notre Mission</h3>
-              <p className="text-gray-600 text-lg leading-relaxed">Mettre en œuvre des programmes de formation, d'incubation et de soutien financier permettant aux jeunes femmes de s'émanciper durablement.</p>
-            </motion.div>
-          </div>
-        </div>
+        </Container>
       </section>
 
-      {/* Solutions pour l'autonomisation */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-dark mb-16">Nos solutions pour l'autonomisation</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { title: "Transformation Agro-alimentaire", desc: "Formation aux techniques de conservation et de transformation des produits locaux.", icon: BeakerIcon },
-              { title: "Fabrication de Savon", desc: "Apprentissage de la production artisanale et semi-industrielle de produits d'hygiène.", icon: SparklesIcon },
-              { title: "Entrepreneuriat Digital", desc: "Maîtrise des outils numériques pour booster la visibilité et les ventes.", icon: ComputerDesktopIcon }
-            ].map((item, i) => (
-              <div key={i} className="p-10 rounded-3xl bg-light hover:bg-primary hover:text-white transition-all group border border-gray-100 shadow-sm hover:shadow-xl">
-                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                  <item.icon className="w-10 h-10 text-primary" />
-                </div>
-                <h3 className="font-bold text-2xl mb-4">{item.title}</h3>
-                <p className="text-gray-600 group-hover:text-white/90 text-lg">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <PartnerMarquee />
-      <StatsSection />
-      <ResponseSection />
-
-      {/* Stratégie Nationale */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="bg-white py-16 md:py-20">
+        <Container>
+          <div className="grid items-end gap-8 lg:grid-cols-2">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-dark mb-8 tracking-tight">Une Stratégie Nationale de Déploiement</h2>
-              <div className="space-y-6">
-                {[
-                  { id: 1, title: "Phase 1 : Pilote Stratégique", desc: "Lancement dans les communes pôles pour validation du modèle d'intervention.", bg: "bg-primary" },
-                  { id: 2, title: "Phase 2 : Extension Départementale", desc: "Déploiement progressif dans chaque département du Bénin.", bg: "bg-secondary" },
-                  { id: 3, title: "Phase 3 : Couverture Nationale", desc: "Intégration des 77 communes dans le dispositif d'autonomisation.", bg: "bg-gold" },
-                  { id: 4, title: "Phase 4 : Mise à l'Échelle", desc: "Pérennisation des acquis et transfert de compétences localement.", bg: "bg-dark" }
-                ].map((phase) => (
-                  <div key={phase.id} className="flex gap-4">
-                    <div className={`w-12 h-12 ${phase.bg} text-white rounded-full flex items-center justify-center font-bold flex-shrink-0`}>{phase.id}</div>
-                    <div>
-                      <h4 className="font-bold text-dark text-lg">{phase.title}</h4>
-                      <p className="text-gray-600 text-sm">{phase.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <Eyebrow>L’impact que nous visons</Eyebrow>
+              <h2 className="font-display text-3xl font-extrabold leading-tight md:text-4xl">
+                {fr(vision)}
+              </h2>
             </div>
-            <div className="flex justify-center">
-              <div className="w-full max-w-md aspect-[3/4] bg-light rounded-3xl flex items-center justify-center relative overflow-hidden group">
-                 <div className="absolute inset-0 bg-primary opacity-5 group-hover:opacity-10 transition-opacity"></div>
-                 <span className="text-primary font-bold text-lg">CARTE DU BÉNIN</span>
-              </div>
-            </div>
+            <p className="text-base leading-relaxed text-muted">{fr(missionShort)}</p>
           </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 md:px-6 max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-dark mb-16">Questions Fréquemment Posées</h2>
-          <div className="space-y-6">
-            {[
-              { q: "Comment rejoindre le programme ?", a: "Le recrutement se fait par appel à candidatures dans les mairies de chaque commune." },
-              { q: "Quels sont les critères d'éligibilité ?", a: "Être une jeune femme résidant au Bénin, âgée de 18 à 35 ans, avec un projet ou une envie d'entreprendre." },
-              { q: "Les formations sont-elles gratuites ?", a: "Oui, l'intégralité du parcours de formation est prise en charge par WOMANDLA et ses partenaires." }
-            ].map((item, i) => (
-              <details key={i} className="group bg-light rounded-2xl p-8 cursor-pointer hover:bg-gray-100 transition-colors">
-                <summary className="font-bold text-xl list-none flex justify-between items-center">
-                  {item.q}
-                  <ChevronDownIcon className="w-6 h-6 transition-transform group-open:rotate-180" />
-                </summary>
-                <p className="mt-6 text-gray-600 text-lg leading-relaxed">{item.a}</p>
-              </details>
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {response.slice(0, 3).map((item) => (
+              <div key={item.title} className="rounded-[22px] border border-line bg-pale p-6">
+                <p className="font-display text-lg font-extrabold">{item.title}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{item.text}</p>
+              </div>
             ))}
           </div>
-        </div>
+          <div className="mt-5 grid gap-4 lg:grid-cols-[240px_1fr]">
+            {targetStats.map((stat) => (
+              <Card key={stat.label} className="p-6">
+                <p className="font-display text-4xl font-extrabold text-gold-deep">{stat.value}</p>
+                <p className="mt-2 text-sm font-bold">{stat.label}</p>
+                <p className="mt-3 text-[11px] font-semibold text-muted">{stat.hint}</p>
+              </Card>
+            ))}
+            <EmptyState
+              title="Indicateurs à publier"
+              text="Aucun autre chiffre d’impact n’est affiché. Les effectifs, taux et budgets seront ajoutés lorsqu’ils seront sourcés."
+            />
+          </div>
+        </Container>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-24 bg-light">
-        <div className="container mx-auto px-4">
-          <h2 className="text-center text-3xl md:text-5xl font-bold mb-16">Elles témoignent</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { name: "Afiwa", role: "Entrepreneure, Cotonou", text: "Grâce à WOMANDLA, j'ai pu structurer mon projet de transformation agro-alimentaire et obtenir mon premier financement." },
-              { name: "Bernice", role: "Leader Communautaire, Parakou", text: "Le programme m'a donné les outils de leadership nécessaires pour porter la voix des femmes de ma commune." },
-              { name: "Clarisse", role: "Bénéficiaire, Ouidah", text: "La formation technique était d'une qualité exceptionnelle. Je me sens enfin prête à relever les défis du marché." }
-            ].map((avis, i) => (
-              <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                <div className="flex gap-1 mb-4">
-                  {[1,2,3,4,5].map(s => <StarIcon key={s} className="w-5 h-5 text-gold" />)}
+      <section className="mesh py-16 md:py-20">
+        <Container>
+          <Eyebrow>Étude de cas</Eyebrow>
+          <h2 className="mb-6 max-w-3xl font-display text-3xl font-extrabold md:text-4xl">
+            Les récits de terrain seront publiés lorsqu’ils seront validés.
+          </h2>
+          <EmptyState
+            title="Aucune étude de cas n’est encore au dossier."
+            text="Le site actuel ne contient pas de récit nominatif vérifié. Cette section accueillera une étude (contexte, problème, intervention, résultats) dès que l’équipe en déposera une. Les noms et chiffres des maquettes n’ont pas été repris."
+          />
+        </Container>
+      </section>
+
+      <section className="bg-white py-16 md:py-20">
+        <Container>
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <Eyebrow>Comment ça marche</Eyebrow>
+            <h2 className="font-display text-3xl font-extrabold md:text-4xl">
+              Un parcours en 4 étapes, du repérage au suivi.
+            </h2>
+          </div>
+          <ol className="grid gap-6 md:grid-cols-4">
+            {howItWorks.map((item, index) => (
+              <li key={item.title} className="text-center">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary font-display text-lg font-extrabold text-white shadow-glow">
+                  {index + 1}
                 </div>
-                <p className="text-gray-600 italic mb-6">"{avis.text}"</p>
-                <div className="font-bold text-dark">{avis.name}</div>
-                <div className="text-primary text-sm font-medium">{avis.role}</div>
+                <p className="eyebrow text-gold-deep">{item.step}</p>
+                <p className="mt-1 font-display text-lg font-extrabold">{item.title}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{fr(item.text)}</p>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </section>
+
+      <section className="bg-light py-16 md:py-20">
+        <Container>
+          <Eyebrow>Mission</Eyebrow>
+          <h2 className="max-w-3xl font-display text-3xl font-extrabold md:text-4xl">{fr(hero.about)}</h2>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {values.map((value) => (
+              <Card key={value.title} className="p-6">
+                <p className="font-display text-xl font-extrabold">{value.title}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{value.text}</p>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-white py-16 md:py-20">
+        <Container>
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <Eyebrow>Programmes</Eyebrow>
+              <h2 className="font-display text-3xl font-extrabold md:text-4xl">Nos solutions pour l’autonomisation</h2>
+            </div>
+            <ButtonLink href="/programmes" variant="ghost">
+              Voir les programmes
+            </ButtonLink>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {solutions.map((item) => (
+              <Card key={item.title} className="p-6">
+                <p className="font-display text-xl font-extrabold">{item.title}</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted">{item.text}</p>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-primary py-14 text-white">
+        <Container className="grid items-center gap-8 lg:grid-cols-[1.3fr_0.7fr]">
+          <div>
+            <p className="eyebrow text-gold">Postulez</p>
+            <h2 className="mt-3 font-display text-3xl font-extrabold md:text-4xl">
+              Vous êtes une jeune femme au Bénin ?
+            </h2>
+            <p className="mt-4 max-w-xl text-white/85">
+              {fr(faq[1].a)} {fr(faq[2].a)}
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <ButtonLink href="/postuler" variant="sun">
+              Se faire accompagner
+            </ButtonLink>
+            <Link href="/postuler/suivi" className="inline-flex items-center rounded-full border border-white/40 px-5 py-3 text-sm font-bold">
+              Suivre ma candidature
+            </Link>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-light py-16 md:py-20">
+        <Container>
+          <Eyebrow>Témoignages</Eyebrow>
+          <h2 className="mb-6 font-display text-3xl font-extrabold md:text-4xl">Elles témoignent</h2>
+          <EmptyState
+            title="Aucun témoignage publié."
+            text="Les récits de bénéficiaires seront ajoutés ici lorsqu’ils auront été validés par l’équipe."
+          />
+        </Container>
+      </section>
+
+      <section className="bg-white py-16 md:py-20">
+        <Container className="grid gap-10 lg:grid-cols-2">
+          <div>
+            <Eyebrow>Où nous agissons</Eyebrow>
+            <h2 className="font-display text-3xl font-extrabold md:text-4xl">Une stratégie nationale de déploiement</h2>
+            <p className="mt-4 text-muted">{deployment.aside}</p>
+            <ol className="mt-6 space-y-4">
+              {phases.map((phase) => (
+                <li key={phase.id} className="flex gap-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary font-bold text-white">
+                    {phase.id}
+                  </span>
+                  <div>
+                    <p className="font-bold">{phase.title}</p>
+                    <p className="text-sm text-muted">{phase.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <Card className="flex min-h-72 flex-col justify-between p-8">
+            <div>
+              <p className="font-display text-2xl font-extrabold">{deployment.pilotTitle}</p>
+              <p className="mt-3 text-sm leading-relaxed text-muted">{deployment.pilotText}</p>
+            </div>
+            <EmptyState
+              title="Carte à compléter"
+              text="Le site actuel ne contient pas de fichier cartographique. Le visuel des communes sera ajouté lorsqu’il sera fourni."
+            />
+          </Card>
+        </Container>
+      </section>
+
+      <section className="bg-primary py-16 text-white">
+        <Container className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+          <div>
+            <p className="eyebrow text-gold">Don express</p>
+            <h2 className="mt-3 font-display text-3xl font-extrabold">Soutenir le programme</h2>
+            <p className="mt-3 text-sm text-white/80">
+              100 % de votre contribution va directement au financement des kits de formation et de démarrage, selon le texte déjà publié.
+            </p>
+          </div>
+          <DonExpress />
+        </Container>
+      </section>
+
+      <section className="bg-white py-16 md:py-20">
+        <Container className="grid gap-6 lg:grid-cols-2">
+          <div>
+            <Eyebrow>Événements</Eyebrow>
+            <h2 className="mb-4 font-display text-3xl font-extrabold">À venir</h2>
+            <EmptyState
+              title="Aucun événement publié."
+              text="Les dates de sessions, portes ouvertes et rencontres seront listées ici dès qu’elles seront communiquées."
+            />
+          </div>
+          <div>
+            <Eyebrow>Actualités</Eyebrow>
+            <h2 className="mb-4 font-display text-3xl font-extrabold">Journal</h2>
+            <EmptyState
+              title="Aucun article pour le moment."
+              text="Le site actuel ne publie pas d’articles. La page Actualités est prête à recevoir des contenus réels."
+            />
+            <ButtonLink href="/actualites" variant="ghost" className="mt-4">
+              Ouvrir les actualités
+            </ButtonLink>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-light py-16">
+        <Container>
+          <Eyebrow>Partenaires et ODD</Eyebrow>
+          <h2 className="font-display text-3xl font-extrabold">Ils sont cités sur le site actuel</h2>
+          <ul className="mt-8 grid grid-cols-2 items-center gap-4 md:grid-cols-5">
+            {partners.map((partner) => (
+              <li key={partner.name} className="flex h-24 items-center justify-center rounded-[22px] border border-line bg-white p-4">
+                <img src={partner.logo} alt={partner.name} className="max-h-14 max-w-full object-contain" />
+              </li>
+            ))}
+          </ul>
+          <p className="mt-3 text-xs text-muted">
+            Le logo « Gouvernement du Bénin » et celui de l’Institut National de la Femme pointent aujourd’hui vers le même fichier. À distinguer.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {odds.map((odd) => (
+              <div key={odd.n} className={`${odd.tone} flex h-28 w-28 flex-col justify-between rounded-xl p-3 text-white`}>
+                <span className="font-display text-2xl font-extrabold">{odd.n}</span>
+                <span className="text-[11px] font-bold leading-tight">{odd.title}</span>
               </div>
             ))}
           </div>
-        </div>
+          <p className="mt-3 text-xs text-muted">
+            ODD cités sur les pages existantes : 1, 4, 5, 8 et 10. {fr(context)}
+          </p>
+        </Container>
       </section>
 
-      {/* CTA Final */}
-      <section className="py-20 bg-white text-dark text-center border-t border-gray-100">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-5xl font-bold mb-8">Investissez dans l'avenir du Bénin</h2>
-          <div className="flex flex-wrap justify-center gap-6">
-            <Link href="/soutenir" className="bg-gold text-white px-10 py-4 rounded-lg font-bold hover:scale-105 transition-all flex items-center gap-2">
-              Faire un don <ArrowRightIcon className="w-5 h-5" />
-            </Link>
-            <Link href="/partenaires" className="border-2 border-primary text-primary px-10 py-4 rounded-lg font-bold hover:bg-primary hover:text-white transition-all">
-              Devenir partenaire
-            </Link>
+      <section className="bg-white py-16">
+        <Container className="max-w-3xl">
+          <Eyebrow>FAQ</Eyebrow>
+          <h2 className="mb-6 font-display text-3xl font-extrabold">Questions fréquentes</h2>
+          <FaqAccordion items={faq} />
+        </Container>
+      </section>
+
+      <section className="bg-dark py-16 text-white">
+        <Container className="grid items-center gap-8 lg:grid-cols-2">
+          <div>
+            <p className="eyebrow text-gold">Newsletter</p>
+            <h2 className="mt-3 font-display text-3xl font-extrabold">Recevoir les prochaines nouvelles</h2>
+            <p className="mt-3 text-sm text-white/70">
+              Pas de liste d’abonnés existante. L’inscription est enregistrée seulement si Supabase est configuré.
+            </p>
           </div>
-        </div>
+          <NewsletterForm />
+        </Container>
       </section>
     </>
   );
