@@ -15,7 +15,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Programme national d'autonomisation des jeunes femmes au Bénin. Une initiative stratégique pour transformer durablement l'avenir du pays.
+              Programme national d’autonomisation des jeunes femmes au Bénin. Une initiative stratégique pour transformer durablement l’avenir du pays.
             </p>
           </div>
 

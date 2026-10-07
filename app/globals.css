@@ -1,25 +1,81 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #4B2E83;
-  --color-secondary: #5E3AA1;
-  --color-gold: #C9A227;
-  --color-light: #F5F5F7;
-  --color-dark: #2E1A47;
+  --color-primary: #4b2e83;
+  --color-secondary: #5e3aa1;
+  --color-gold: #c9a227;
+  --color-gold-deep: #80650f;
+  --color-dark: #2e1a47;
+  --color-ink: #2e1a47;
+  --color-muted: #4a5565;
+  --color-line: #e5e7eb;
+  --color-light: #f5f5f7;
+  --color-soft: #edeaf3;
+  --color-pale: #f6f5f9;
+  --color-sun-soft: #faf6e9;
+  --color-danger: #dc2626;
+  --font-display: var(--font-lexend), "Lexend", system-ui, sans-serif;
+  --font-sans: var(--font-manrope), "Manrope", system-ui, sans-serif;
+  --shadow-soft: 0 4px 24px rgba(46, 26, 71, 0.06);
+  --shadow-card: 0 8px 32px rgba(46, 26, 71, 0.08);
+  --shadow-glow: 0 8px 28px rgba(75, 46, 131, 0.28);
+  --shadow-sun: 0 6px 20px rgba(201, 162, 39, 0.35);
 }
 
-:root {
-  --font-montserrat: "Montserrat", sans-serif;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: var(--font-montserrat);
-  background-color: white;
-  color: #1a1a1a;
+  background: #f5f5f7;
+  color: #2e1a47;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
-@layer base {
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight;
-  }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+:focus-visible {
+  outline: 2px solid #4b2e83;
+  outline-offset: 3px;
+}
+
+.mesh {
+  background-image:
+    radial-gradient(at 12% 18%, rgba(75, 46, 131, 0.09) 0, transparent 50%),
+    radial-gradient(at 88% 8%, rgba(201, 162, 39, 0.1) 0, transparent 42%),
+    radial-gradient(at 50% 100%, rgba(75, 46, 131, 0.05) 0, transparent 50%);
+}
+
+.arch {
+  overflow: hidden;
+  border-radius: 50% 50% 28% 28% / 42% 42% 28% 28%;
+}
+
+.arch-round {
+  overflow: hidden;
+  border-radius: 999px 999px 28px 28px;
+}
+
+.eyebrow {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.progress-track {
+  height: 8px;
+  background: #edeaf3;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-track > span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #4b2e83, #5e3aa1);
 }

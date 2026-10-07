@@ -38,7 +38,7 @@ export default function ResponseSection() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-dark mb-4 tracking-tight">Notre Réponse Institutionnelle</h2>
           <div className="h-1.5 w-24 bg-gold mx-auto mb-6"></div>
-          <p className="text-gray-600">Un dispositif structuré pour répondre aux défis majeurs de l'emploi et de l'autonomie des femmes.</p>
+          <p className="text-gray-600">Un dispositif structuré pour répondre aux défis majeurs de l’emploi et de l’autonomie des femmes.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

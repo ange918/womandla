@@ -1,115 +1,170 @@
-"use client";
+import type { Metadata } from "next";
+import { ButtonLink, Card, Container, EmptyState, PageHero } from "@/components/site/ui";
+import {
+  deployment,
+  documents,
+  globalObjective,
+  governance,
+  methodology,
+  mission,
+  partners,
+  phases,
+  pilotClaims,
+  values,
+  vision,
+} from "@/lib/content";
+import { fr } from "@/lib/utils";
 
-import { motion } from "framer-motion";
-import HeroSection from "@/components/HeroSection";
-import { EyeIcon, FlagIcon, ShieldCheckIcon, HeartIcon, ScaleIcon } from "@heroicons/react/24/outline";
+export const metadata: Metadata = {
+  title: "À propos",
+  description: "Vision, mission, valeurs et déploiement de WOMANDLA au Bénin.",
+};
 
 export default function AboutPage() {
   return (
     <>
-      <HeroSection 
-        title="À Propos de WOMANDLA"
-        subtitle="Une organisation dédiée à l'autonomisation socio-économique des jeunes femmes à travers le Bénin."
-        image="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800"
-        showButtons={false}
+      <PageHero
+        eyebrow="À propos"
+        title="Une organisation dédiée à l’autonomisation socio-économique des jeunes femmes à travers le Bénin."
+        text={vision}
       />
-      <div className="py-24">
-        <div className="container mx-auto px-4 md:px-6">
+      <section className="bg-white py-16">
+        <Container className="grid gap-5 md:grid-cols-2">
+          <Card className="border-b-8 border-b-primary p-8">
+            <h2 className="font-display text-2xl font-extrabold">Notre vision</h2>
+            <p className="mt-4 leading-relaxed text-muted">{fr(vision)}</p>
+          </Card>
+          <Card className="border-b-8 border-b-gold p-8">
+            <h2 className="font-display text-2xl font-extrabold">Notre mission</h2>
+            <p className="mt-4 leading-relaxed text-muted">{fr(mission)}</p>
+          </Card>
+        </Container>
+      </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
-          <motion.div 
-            whileHover={{ y: -10 }}
-            className="bg-white p-12 rounded-3xl shadow-xl border-b-8 border-primary group"
-          >
-            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-              <EyeIcon className="w-10 h-10 text-primary" />
-            </div>
-            <h2 className="text-3xl font-bold text-dark mb-6">Notre Vision</h2>
-            <p className="text-gray-700 text-lg leading-relaxed">
-              Devenir le levier national de référence pour l'émergence d'une nouvelle génération de femmes leaders et actrices du développement économique local dans chaque commune du Bénin.
-            </p>
-          </motion.div>
-          <motion.div 
-            whileHover={{ y: -10 }}
-            className="bg-white p-12 rounded-3xl shadow-xl border-b-8 border-gold group"
-          >
-            <div className="w-16 h-16 bg-gold/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-              <FlagIcon className="w-10 h-10 text-gold" />
-            </div>
-            <h2 className="text-3xl font-bold text-dark mb-6">Notre Mission</h2>
-            <p className="text-gray-700 text-lg leading-relaxed">
-              Mettre en œuvre des programmes de formation, d'incubation et de soutien financier permettant aux jeunes femmes de s'émanciper durablement et de contribuer à la prospérité nationale.
-            </p>
-          </motion.div>
-        </div>
-
-        <section className="mb-24">
-          <h2 className="text-3xl font-bold text-center text-dark mb-16">Nos Valeurs Fondamentales</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8">
-              <ShieldCheckIcon className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="font-bold text-xl mb-2 text-dark">Transparence</h3>
-              <p className="text-gray-600 text-sm">Gestion rigoureuse et redevabilité envers nos bailleurs et bénéficiaires.</p>
-            </div>
-            <div className="text-center p-8">
-              <HeartIcon className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="font-bold text-xl mb-2 text-dark">Engagement</h3>
-              <p className="text-gray-600 text-sm">Dévouement total pour la réussite de chaque femme accompagnée.</p>
-            </div>
-            <div className="text-center p-8">
-              <ScaleIcon className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="font-bold text-xl mb-2 text-dark">Équité</h3>
-              <p className="text-gray-600 text-sm">Une présence équilibrée dans les 77 communes du territoire national.</p>
-            </div>
+      <section className="py-8">
+        <Container>
+          <h2 className="mb-6 text-center font-display text-3xl font-extrabold">Nos valeurs fondamentales</h2>
+          <div className="grid gap-4 md:grid-cols-3">
+            {values.map((value) => (
+              <Card key={value.title} className="p-6 text-center">
+                <h3 className="font-display text-xl font-extrabold">{value.title}</h3>
+                <p className="mt-2 text-sm text-muted">{value.text}</p>
+              </Card>
+            ))}
           </div>
-        </section>
+        </Container>
+      </section>
 
-        {/* Réalisations Section */}
-        <section className="mb-24">
-          <h2 className="text-3xl font-bold text-center text-dark mb-16">Nos Réalisations</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
-            <div>
-              <h3 className="text-2xl font-bold text-primary mb-6">Phase Pilote Réussie</h3>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Lancée en 2024, notre phase pilote a permis d'accompagner 500 jeunes femmes dans 5 communes stratégiques du Bénin. 
-                80% d'entre elles ont aujourd'hui une activité génératrice de revenus stable.
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3 text-gray-700">
-                  <span className="w-2 h-2 bg-gold rounded-full"></span>
-                  Plus de 1200 heures de formation technique dispensées.
+      <section className="bg-white py-16">
+        <Container className="grid gap-8 lg:grid-cols-2">
+          <div>
+            <h2 className="font-display text-3xl font-extrabold">Notre histoire publiée</h2>
+            <p className="mt-4 leading-relaxed text-muted">{fr(pilotClaims.text)}</p>
+            <ul className="mt-4 space-y-2 text-sm">
+              {pilotClaims.points.map((point) => (
+                <li key={point} className="flex gap-2">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                  {point}
                 </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <span className="w-2 h-2 bg-gold rounded-full"></span>
-                  50 micro-projets financés et incubés.
-                </li>
-              </ul>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=400" alt="Réalisation 1" className="rounded-xl aspect-square object-cover" />
-              <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=400" alt="Réalisation 2" className="rounded-xl aspect-square object-cover" />
-            </div>
+              ))}
+            </ul>
+            <p className="mt-4 text-xs text-muted">
+              Chiffres repris de la page À propos actuelle. Une autre page du site parle d’un pilote de 150 jeunes femmes à Bohicon : les deux versions sont conservées, à réconcilier.
+            </p>
           </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24">
-            <img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&q=80&w=400" alt="Galerie 1" className="rounded-xl aspect-square object-cover hover:scale-105 transition-transform" />
-            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80&w=400" alt="Galerie 2" className="rounded-xl aspect-square object-cover hover:scale-105 transition-transform" />
-            <img src="https://images.unsplash.com/photo-1573497019236-17f8177b81e8?auto=format&fit=crop&q=80&w=400" alt="Galerie 3" className="rounded-xl aspect-square object-cover hover:scale-105 transition-transform" />
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400" alt="Galerie 4" className="rounded-xl aspect-square object-cover hover:scale-105 transition-transform" />
+          <div className="arch-round h-80">
+            <img
+              src="/media/c-groupe-femmes.jpg"
+              alt="Illustration : groupe de femmes au Bénin. Photo libre, pas une activité WOMANDLA identifiée."
+              className="h-full w-full object-cover"
+            />
           </div>
-        </section>
+        </Container>
+      </section>
 
-        <div className="bg-dark text-white p-12 rounded-3xl text-center">
-          <h2 className="text-3xl font-bold mb-6">Gouvernance & Transparence</h2>
-          <p className="max-w-2xl mx-auto text-gray-300 mb-8">
-            Nous appliquons les plus hauts standards internationaux de gestion de projets institutionnels. Nos rapports financiers sont audités annuellement et accessibles à nos partenaires.
-          </p>
-          <button className="bg-gold text-white px-8 py-3 rounded font-bold hover:scale-105 transition-all">
-            Consulter le Rapport Annuel
-          </button>
-        </div>
-      </div>
-    </div>
+      <section className="py-16">
+        <Container>
+          <h2 className="font-display text-3xl font-extrabold">Théorie du changement</h2>
+          <p className="mt-4 max-w-3xl leading-relaxed text-muted">{fr(globalObjective)}</p>
+          <p className="mt-4 max-w-3xl leading-relaxed text-muted">{fr(methodology)}</p>
+          <ol className="mt-8 grid gap-4 md:grid-cols-2">
+            {phases.map((phase) => (
+              <li key={phase.id}>
+                <Card className="h-full p-5">
+                  <p className="text-sm font-bold text-primary">0{phase.id}</p>
+                  <p className="mt-1 font-display text-lg font-extrabold">{phase.title}</p>
+                  <p className="mt-2 text-sm text-muted">{phase.text}</p>
+                </Card>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </section>
+
+      <section className="bg-white py-16">
+        <Container>
+          <h2 className="font-display text-3xl font-extrabold">Où nous agissons</h2>
+          <p className="mt-3 max-w-3xl text-muted">{deployment.expansionText}</p>
+          <div className="mt-6">
+            <EmptyState
+              title="Carte et antennes à compléter"
+              text="Aucune adresse d’antenne, aucun nom de bureau et aucune équipe terrain ne figurent dans le site actuel. Ils seront ajoutés lorsqu’ils seront fournis."
+            />
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16">
+        <Container>
+          <h2 className="font-display text-3xl font-extrabold">Partenaires cités</h2>
+          <ul className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-5">
+            {partners.map((partner) => (
+              <li key={partner.name} className="rounded-[22px] border border-line bg-white p-4 text-center">
+                <img src={partner.logo} alt="" className="mx-auto h-12 object-contain" />
+                <p className="mt-2 text-xs font-bold">{partner.name}</p>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      <section className="bg-dark py-16 text-white">
+        <Container>
+          <h2 className="font-display text-3xl font-extrabold">Gouvernance et transparence</h2>
+          <p className="mt-4 max-w-2xl text-white/75">{fr(governance)}</p>
+          <ul className="mt-8 grid gap-3 md:grid-cols-2">
+            {documents.map((doc) => (
+              <li key={doc} className="flex items-center justify-between rounded-2xl bg-white/5 px-4 py-4 text-sm">
+                <span>{doc}</span>
+                <span className="text-xs text-white/50">Fichier non déposé</span>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      <section className="bg-white py-16">
+        <Container className="grid gap-4 md:grid-cols-3">
+          <Card className="p-6">
+            <h2 className="font-display text-xl font-extrabold">Bénévolat</h2>
+            <p className="mt-2 text-sm text-muted">Le site invite à soutenir le programme. Aucune fiche de mission bénévole n’est publiée.</p>
+            <ButtonLink href="/contact?profil=autre" variant="ghost" className="mt-4">
+              Écrire à l’équipe
+            </ButtonLink>
+          </Card>
+          <Card className="p-6">
+            <h2 className="font-display text-xl font-extrabold">Partenariat</h2>
+            <p className="mt-2 text-sm text-muted">Institutions publiques, entreprises et organismes internationaux peuvent rejoindre le réseau.</p>
+            <ButtonLink href="/partenaires" variant="ghost" className="mt-4">
+              Voir les partenaires
+            </ButtonLink>
+          </Card>
+          <Card className="p-6">
+            <h2 className="font-display text-xl font-extrabold">Emplois</h2>
+            <p className="mt-2 text-sm text-muted">Aucune offre d’emploi n’est publiée sur le site actuel.</p>
+          </Card>
+        </Container>
+      </section>
     </>
   );
 }

@@ -1,33 +1,46 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Lexend, Manrope } from "next/font/google";
+import Footer from "@/components/site/Footer";
+import Header from "@/components/site/Header";
+import Providers from "@/app/providers";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
-const montserrat = Montserrat({
+const lexend = Lexend({
   subsets: ["latin"],
-  variable: "--font-montserrat",
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-lexend",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
-  title: "WOMANDLA | Autonomisation Féminine au Bénin",
-  description: "Programme national d'autonomisation des jeunes femmes au Bénin. Transformer durablement le pays par l'éducation et l'entrepreneuriat.",
+  title: {
+    default: "WOMANDLA | Autonomisation féminine au Bénin",
+    template: "%s · WOMANDLA",
+  },
+  description:
+    "Programme national d’autonomisation des jeunes femmes au Bénin. Formation, incubation et leadership dans les 77 communes.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" className="scroll-smooth">
-      <body className={`${montserrat.variable} font-montserrat antialiased bg-white text-gray-900`}>
-        <Navbar />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+    <html lang="fr" className={`${lexend.variable} ${manrope.variable}`}>
+      <body className="min-h-screen bg-light font-sans text-ink antialiased">
+        <a
+          href="#contenu"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2"
+        >
+          Aller au contenu
+        </a>
+        <Providers>
+          <Header />
+          <main id="contenu">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
